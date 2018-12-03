@@ -1,0 +1,53 @@
+<h1>Your Cart</h1>
+<br><br> <!-- breaks added just to style the document -->
+<% if @cart.empty? %>
+    <p> Your cart is empty</p>
+<%end%>
+<%= session[:cart] %> 
+<!-- see the session id -->
+
+<% total = 0 %>
+
+<table class="cart">
+    <tr>
+        <td class="legend"></td>
+        <td class="legend">Item</td>
+        <td class="legend">Option</td>
+        <td class="legend">Price</td>
+        <td class="legend">Qty</td>
+        <td class="legend">Total</td>
+    </tr>
+    
+    <% @cart.each do |id,quantity| %>
+    <% item = Item.find_by_id(id) %>
+    <tr>
+        <td>
+            <div class="image">
+                <%= link_to (image_tag item.image_url, :style => "height:40px"), item %>
+            </div>
+        </td>
+        <td class="title"><%= link_to item.title, item %></td>
+        <td><a href="/cart/remove/<%= item.id %>">Remove from Cart</a>
+        </td>
+        <td class="price"><%=number_to_currency(item.price)%></td>
+        <td class="quantity"><%= quantity %></td>
+        <td class="price"><%= number_to_currency(quantity * item.price, :unit => "€") %></td>
+    </tr>
+    <% total += quantity * item.price%>
+    <% end %>
+    <tr>
+        <td colspan="5">
+            <div class="total">Total:</div>
+        </td>
+        <td>
+            <div class="price">
+                <%= number_to_currency(total, :unit => "Eur")%>
+            </div>
+        </td>
+    </tr>
+    </table>
+    <p>
+        <%= link_to 'Checkout Order', controller => "cart", :action => "createOrder" %> 
+        <%= link_to 'Clear Cart', :controller => "cart", :action => "clearCart" %>
+        <%= link_to "Continue Shopping", :controller => :items %>
+    </p>

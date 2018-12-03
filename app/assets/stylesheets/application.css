@@ -1,0 +1,71 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+.headSec{
+    background: url("/assets/egg-cartons-big.jpg"); 
+    /*background: url("/assets/site/egg-cartons-big.jpg");*/
+    min-height: 350px;
+    background-color: #b3e0ff;
+    width: 100%;
+    margin-bottom: 10px;
+    overflow: auto;
+    /*background-repeat: no-repeat;
+    background-size: 100% 100%; */
+}
+.headSec p{
+    color: white;
+    font-size: 28px;
+    float: right;
+}
+
+.foot {    
+    min-height: 60px;    
+    background-color: #b3e0ff;    
+    width: 100%;    
+    margin-top: 10px;    
+    overflow: auto; 
+}
+
+.foot p{
+    margin: 15px auto;
+}
+.container{
+    min-height: 700px;
+    width: 90%;
+}
+
+/* --nav-- */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+
+/* --nav-- */
